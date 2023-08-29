@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input1" placeholder="Enter a 1st number" />
+    <input type="text" id="input2" placeholder="Enter a 2nd number" />
+    <button onclick="add()">Addition</button>
+    <button onclick="sub()">Subtract</button>
+    <button onclick="multi()">Multipliation</button>
+    <button onclick="divide()">Divide</button>
+
+    <script>
+      let input_1 = document.getElementById("input1");
+      let input_2 = document.getElementById("input2");
+      function add() {
+        let num1 = +input_1.value + +input_2.value;
+        alert(num1);
+      }
+
+      function sub() {
+        let num2 = +input_1.value - +input_2.value;
+        alert(num2);
+      }
+
+      function multi() {
+        let num3 = +input_1.value * +input_2.value;
+        alert(num3);
+      }
+
+      function divide() {
+        let num1 = +input_1.value / +input_2.value;
+        alert(num1);
+      }
+    </script>
+  </body>
+</html>
