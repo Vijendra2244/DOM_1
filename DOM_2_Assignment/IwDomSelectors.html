@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Practise Selectors</title>
+  </head>
+  <body>
+    <h1>First H1</h1>
+    <h1>Second H1</h1>
+    <h3>First H3</h3>
+    <h3>Second H3</h3>
+    <h5>First H5</h5>
+    <h5>Second H5</h5>
+    <h5>Third H5</h5>
+    <div class="green">First DIV</div>
+    <div class="red">Second DIV</div>
+    <div class="blue">Third DIV</div>
+    <p class="green">First P</p>
+    <p class="red">Second P</p>
+    <p class="blue">Third P</p>
+    <hr />
+    <button onClick="changeH1()">Change H1</button>
+    <button onClick="changeH3()">Change H3</button>
+    <button onClick="changeH5()">Change H5</button>
+    <button onClick="changeGreen()">Change Green</button>
+    <button onClick="changeRed()">Change Red</button>
+    <button onClick="changeBlue()">Change Blue</button>
+    <script>
+      let heading1 = document.querySelector("h1");
+      function changeH1() {
+        heading1.style.color = "red";
+      }
+      let heading3 = document.getElementsByTagName("h3");
+      function changeH3() {
+        for (let i = 0; i < heading3.length; i++) {
+          heading3[i].style.color = "green";
+        }
+      }
+      let heading5 = document.getElementsByTagName("h5");
+      function changeH5() {
+        for (let i = 0; i < heading5.length; i++) {
+          heading5[i].style.color = "blue";
+        }
+      }
+      let green = document.querySelectorAll(".green");
+      function changeGreen() {
+        for (let i = 0; i < green.length; i++) {
+          green[i].style.color = "green";
+        }
+      }
+      let red = document.querySelectorAll(".red");
+      function changeRed() {
+        for (let i = 0; i < red.length; i++) {
+          red[i].style.color = "red";
+        }
+      }
+      let blue = document.querySelectorAll(".blue");
+
+      function changeBlue() {
+        for (let i = 0; i < blue.length; i++) {
+          blue[i].style.color = "blue";
+        }
+      }
+    </script>
+  </body>
+</html>

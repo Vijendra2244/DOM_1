@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        text-align: center;
+        margin-top: 50px;
+      }
+      #score-box {
+        font-size: 24px;
+        padding: 10px;
+        border: 1px solid #000;
+        width: 200px;
+        margin: 2rem 42%;
+      }
+      .number-button {
+        font-size: 18px;
+        margin: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+      .color {
+        background-color: rgb(3, 65, 3);
+      }
+      .indigo {
+        background-color: purple;
+      }
+      .color2 {
+        background-color: rgb(116, 68, 6);
+      }
+      .enter {
+        background-color: #000;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="score-box"></div>
+      <div>
+        <button class="number-button color" onclick="addToScore(1)">1</button>
+        <button class="number-button color2" onclick="addToScore(2)">2</button>
+        <button class="number-button color" onclick="addToScore(3)">3</button>
+      </div>
+      <div>
+        <button class="number-button color2" onclick="addToScore(4)">4</button>
+        <button class="number-button color2" onclick="addToScore(5)">5</button>
+        <button class="number-button color2" onclick="addToScore(6)">6</button>
+      </div>
+      <div>
+        <button class="number-button color" onclick="addToScore(7)">7</button>
+        <button class="number-button color2" onclick="addToScore(8)">8</button>
+        <button class="number-button color" onclick="addToScore(9)">9</button>
+      </div>
+      <div>
+        <button class="number-button indigo" onclick="addToScore(0)">0</button>
+      </div>
+      <div>
+        <button class="number-button enter" onclick="enterScore()">
+          ENTER
+        </button>
+      </div>
+      <div>
+        <label>MIN: <span id="min-score">-</span></label>
+        <label>MAX: <span id="max-score">-</span></label>
+      </div>
+    </div>
+    <script>
+      let currentScore = "";
+      let minScore = Infinity;
+      let maxScore = -Infinity;
+
+      function updateScoreBox() {
+        const scoreBox = document.getElementById("score-box");
+        scoreBox.textContent = currentScore;
+      }
+
+      function addToScore(number) {
+        currentScore += number;
+        updateScoreBox();
+      }
+
+      function enterScore() {
+        if (currentScore === "") return;
+
+        const score = parseInt(currentScore);
+
+        if (score < minScore) {
+          minScore = score;
+          document.getElementById("min-score").textContent = minScore;
+        }
+
+        if (score > maxScore) {
+          maxScore = score;
+          document.getElementById("max-score").textContent = maxScore;
+        }
+
+        currentScore = "";
+        updateScoreBox();
+      }
+    </script>
+  </body>
+</html>
