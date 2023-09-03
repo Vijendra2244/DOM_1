@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Calculator</title>
+    <style>
+      input {
+        width: 50%;
+        padding: 10px;
+        margin: 1rem 2rem;
+        box-shadow: rgba(182, 185, 188, 0.4) 0px 8px 24px;
+        border: none;
+        outline: none;
+        border-radius: 0.6rem;
+      }
+      .cont {
+        width: 30%;
+        margin: auto;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding: 2rem;
+        border-radius: 1rem;
+        /* border: 1px solid red; */
+      }
+      .cont > button {
+        margin: auto;
+        width: 22%;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border: none;
+        outline: none;
+        border-radius: 0.6rem;
+        margin-bottom: 0.5rem;
+      }
+      .masai {
+        text-align: center;
+        color: teal;
+      }
+      .orange {
+        background-color: orangered;
+      }
+      .black {
+        background-color: black;
+        color: white;
+      }
+      .white {
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="masai">Masai Calculator</h1>
+    <div class="cont">
+      <input type="text" id="result" readonly />
+      <br />
+      <button class="white" onclick="appendToResult('1')">1</button>
+      <button class="white" onclick="appendToResult('2')">2</button>
+      <button class="white" onclick="appendToResult('3')">3</button>
+      <button class="black" onclick="appendToResult('+')">+</button>
+      <br />
+      <button class="white" onclick="appendToResult('4')">4</button>
+      <button class="white" onclick="appendToResult('5')">5</button>
+      <button class="white" onclick="appendToResult('6')">6</button>
+      <button class="black" onclick="appendToResult('-')">-</button>
+      <br />
+      <button class="white" onclick="appendToResult('7')">7</button>
+      <button class="white" onclick="appendToResult('8')">8</button>
+      <button class="white" onclick="appendToResult('9')">9</button>
+      <button class="black" onclick="appendToResult('*')">*</button>
+      <br />
+      <button class="white" onclick="appendToResult('0')">0</button>
+      <button class="orange" onclick="clearResult()">C</button>
+      <button class="black" onclick="calculateResult()">=</button>
+      <button class="black" onclick="appendToResult('/')">/</button>
+      <br />
+    </div>
+    <script>
+      function appendToResult(value) {
+        document.getElementById("result").value += value;
+      }
+
+      function clearResult() {
+        document.getElementById("result").value = "";
+      }
+
+      function calculateResult() {
+        const expression = document.getElementById("result").value;
+        try {
+          const result = eval(expression);
+          document.getElementById("result").value = result;
+        } catch (error) {
+          document.getElementById("result").value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>
