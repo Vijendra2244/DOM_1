@@ -1,0 +1,55 @@
+/* Fill CSS here */
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  color: blue;
+}
+form {
+  width: 30%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 0.6rem;
+}
+#name,
+#docID,
+#exp,
+#dept,
+#email,
+#mbl {
+  margin-bottom: 0.6rem;
+}
+#btnSubmit {
+  width: 100%;
+  border: none;
+  outline: none;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: rgb(58, 58, 196);
+}
+thead {
+  box-shadow: rgba(149, 157, 165, 0.5) 0px 8px 24px;
+}
+th {
+  color: blue;
+}
+tbody {
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+td {
+  color: blue;
+}
