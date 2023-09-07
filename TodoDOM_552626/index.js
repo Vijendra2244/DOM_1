@@ -23,4 +23,6 @@ form.addEventListener("submit", function (event) {
     tRow.append(tData1, tData2);
     tbody.append(tRow);
   });
+  task.value = "";
+  priority.value = "";
 });

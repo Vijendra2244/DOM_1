@@ -58,15 +58,21 @@ myForm.addEventListener("submit", function (event) {
       tableData7
     );
     let btnTD = document.createElement("td");
-    let btnDelet = document.createElement("button");
-    btnDelet.innerText = "Delete";
-    btnDelet.addEventListener("click", function () {
+    let deletbtn = document.createElement("button");
+    deletbtn.innerText = "Delete";
+    deletbtn.setAttribute("class", "colorBTn");
+    deletbtn.addEventListener("click", function () {
       tbody.removeChild(tRow);
     });
-    btnDelet.style.backgroundColor = "red";
-    btnDelet.style.color = "white";
-    btnDelet.appendChild(btnTD);
-    tRow.appendChild(btnDelet);
+
+    btnTD.appendChild(deletbtn);
+    tRow.appendChild(deletbtn);
     tbody.append(tRow);
   });
+  employeeName.value = "";
+  employeId.value = "";
+  emailId.value = "";
+  mobileNumber.value = "";
+  department.value = "";
+  experiance.value = "";
 });

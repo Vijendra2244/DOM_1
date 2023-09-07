@@ -1,5 +1,11 @@
 /* Fill CSS here */
 
+.main {
+  display: flex;
+  justify-content: space-around;
+  
+}
+
 table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -52,4 +58,11 @@ tbody {
 }
 td {
   color: blue;
+}
+.colorBTn {
+  color: white;
+  background-color: red;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
 }
