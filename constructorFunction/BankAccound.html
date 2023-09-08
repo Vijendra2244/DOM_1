@@ -1,0 +1,88 @@
+<!-- 1. Create a constructor function called BankAccount that takes accountNumber, name, type, and balance as arguments.
+ 2. Inside the constructor, initialize the properties of the bank account object.
+ (a). Add the following methods to the BankAccount prototype:
+ 1.deposit(amount) - Deposits the specified amount into the account.
+ 2. withdraw(amount) - Withdraws the specified amount from the account if the balance is sufficient.
+ 3. checkBalance() - Prints the account's balance.
+ 4. isActive() - Checks and returns whether the account is active.
+Create multiple BankAccount objects representing different accounts.
+
+Perform a series of deposit, withdrawal, and balance check operations on these accounts.
+
+Test the isActive method to check if the accounts are active.
+
+Implement a function getTotalBalance that calculates and returns the total balance of all active accounts.
+
+Test the getTotalBalance function to display the total balance of all active accounts.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Accound Information</title>
+  </head>
+  <body>
+    <script>
+      function BankAccount(accountNumber, name, type, balance) {
+        this.accountNumber = accountNumber;
+        this.name = name;
+        this.type = type;
+        this.balance = balance;
+
+        this.deposite = function (amount) {
+          this.balance += amount;
+          console.log(`your amount is ${this.balance}rs`);
+        };
+        this.withdrawl = function (amount) {
+          if (this.balance >= amount) {
+            this.balance -= amount;
+            console.log(`your remaining amount is ${this.balance}rs`);
+          } else {
+            console.log(
+              `your  balance is ${this.balance}rs is not  sufficient to withdraw ${amount}rs`
+            );
+          }
+        };
+        this.isActive = function () {
+          if (this.balance < 0) {
+            console.log(`your bank account is inActive `);
+          } else {
+            console.log(`your bank account is Active`);
+          }
+          this.checkBalance = function () {
+            console.log(
+              `Your account ${accountNumber} balance is : ${this.balance}rs`
+            );
+          };
+        };
+      }
+      const bankInfo_1 = new BankAccount(
+        98765432345678,
+        "Akshay",
+        "Saving",
+        10000,
+        true
+      );
+      let bankInfo_2 = new BankAccount(
+        98765432,
+        "Ajay",
+        "Current",
+        10000,
+        true
+      );
+
+      bankInfo_1.deposite(2000);
+      bankInfo_1.withdrawl(3000);
+      bankInfo_1.isActive();
+      bankInfo_1.checkBalance();
+
+      bankInfo_2.deposite(1000);
+      bankInfo_2.withdrawl(4000);
+      bankInfo_2.isActive();
+      bankInfo_2.checkBalance();
+
+</script>
+  </body>
+</html>

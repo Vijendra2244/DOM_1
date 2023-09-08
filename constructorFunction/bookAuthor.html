@@ -1,0 +1,37 @@
+<!-- Create constructor functions for Book and Author to represent books and authors.
+The Author constructor should take name, birthYear, and nationality as arguments.
+The Book constructor should take title, author (an Author object), genre, and price as arguments.
+Implement methods in the Book prototype:
+getBookInfo - to print the book's title, author's name, genre, and price.
+Create an online bookstore by creating instances of Book and Author objects.
+Display the book details for each book in the bookstore. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Author</title>
+  </head>
+  <body>
+    <script>
+      function author(name, birthyear, nationality) {
+        this.name = name;
+        this.birthyear = birthyear;
+        this.nationality = nationality;
+      }
+      let AuthorInfo = new author("David", 1992, "Australian");
+
+      function Book(title, author, genre, price) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.price = price;
+      }
+
+      console.log(AuthorInfo);
+      let theBook = new Book("Rich Dad Poor Dad", AuthorInfo, "something", 200);
+      console.log(theBook);
+    </script>
+  </body>
+</html>
