@@ -19,10 +19,14 @@ form.addEventListener("submit", function (event) {
     let tData2 = document.createElement("td");
 
     tData1.innerText = element.input;
-    tData2.innerText = element.priority;
-    tRow.append(tData1, tData2);
-    tbody.append(tRow);
+    tData2.innerHTML = `<p style="background-color:${
+      element.priority == "High" ? "red" : "green"
+    } ;">${element.priority}</p>`;
+    tRow.appendChild(tData1);
+    tRow.appendChild(tData2);
+    tbody.append(tRow);o
   });
+
   task.value = "";
   priority.value = "";
 });
