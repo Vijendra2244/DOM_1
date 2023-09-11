@@ -1,0 +1,92 @@
+<!-- Task : Imagine you are developing a simulation game that involves various kinds of vehicles. Using the concepts of inheritance, prototype chains, and object-oriented design patterns learned in class.
+Instructions:
+Create a basic Vehicle constructor function that initializes properties like brand, model, speed, and fuelType.
+
+Using the prototype, add common methods to the Vehicle object like accelerate(), brake(), and refuel().
+
+accelerate() should increase the speed of the vehicle.
+brake() should decrease the speed.
+refuel() should log a message indicating the vehicle is refueling.
+Now, create a Car constructor function. The Car function should inherit properties and methods from the Vehicle object. Additionally, Car should have an extra property numberOfWheels and a method honk() that logs a honking sound.
+
+Similarly, create an Airplane constructor function that inherits from Vehicle. It should have properties numberOfEngines and hasLandingGear and a method takeOff() that logs a message indicating the airplane is taking off.
+
+Show how you would create a new instance of Car and Airplane, and demonstrate invoking their methods, ensuring that both types of vehicles can still accelerate, brake, and refuel through their prototype chain. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>simulation Game</title>
+  </head>
+  <body>
+    <script>
+      // vehicle constructor funtion
+      function vehicle(brand, speed, fuelType, model) {
+        this.brand = brand;
+        this.speed = speed;
+        this.fuelType = fuelType;
+        this.model = model;
+      }
+      vehicle.prototype.accelerate = function () {
+        console.log("should increase the speed of the vehicle");
+      };
+      vehicle.prototype.brake = function () {
+        console.log("should decrease the speed of the vehicle");
+      };
+      vehicle.prototype.refuel = function () {
+        console.log("the vehicle is refueling");
+      };
+
+      let bike = new vehicle("hero", "120km/h", "petrol", 2023);
+      console.log(bike);
+      bike.accelerate();
+      bike.brake();
+      bike.refuel();
+
+      // car constructor function
+
+      function car(brand, speed, fuelType, model, numberOfeels) {
+        vehicle.call(this, brand, speed, fuelType, model);
+        this.numberOfWheels = numberOfeels;
+      }
+      Object.setPrototypeOf(car.prototype, vehicle.prototype);
+
+      car.prototype.honk = function () {
+        console.log(" honking sound");
+      };
+      let car_1 = new car("suzuki", 140, "diesel", 2019, 4);
+      console.log(car_1);
+      car_1.honk();
+      car_1.accelerate();
+      car_1.brake();
+
+      // Airplane constructor function
+
+      function airplane(
+        brand,
+        speed,
+        fuelType,
+        model,
+        numberOfEngines,
+        hasLandingGear
+      ) {
+        vehicle.call(this, brand, speed, fuelType, model);
+        this.numberOfEngines = numberOfEngines;
+        this.hasLandingGear = hasLandingGear;
+      }
+
+      Object.setPrototypeOf(airplane.prototype, vehicle.prototype);
+
+      airplane.prototype.takeOff = function () {
+        console.log("the airplane is taking off");
+      };
+
+      let airplane_1 = new airplane("indigo", 230, "air", 2016, 3, "yes");
+      console.log(airplane_1);
+      airplane_1.takeOff();
+      airplane_1.brake();
+    </script>
+  </body>
+</html>

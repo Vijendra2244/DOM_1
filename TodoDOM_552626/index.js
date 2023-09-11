@@ -24,7 +24,7 @@ form.addEventListener("submit", function (event) {
     } ;">${element.priority}</p>`;
     tRow.appendChild(tData1);
     tRow.appendChild(tData2);
-    tbody.append(tRow);o
+    tbody.append(tRow);
   });
 
   task.value = "";
