@@ -47,10 +47,10 @@ Show how you would create a new instance of Car and Airplane, and demonstrate in
 
       // car constructor function
 
-      function car(brand, speed, fuelType, model, numberOfeels) {
+     function car(brand, speed, fuelType, model, numberOfeels) {
         vehicle.call(this, brand, speed, fuelType, model);
         this.numberOfWheels = numberOfeels;
-      }
+      } 
       Object.setPrototypeOf(car.prototype, vehicle.prototype);
 
       car.prototype.honk = function () {

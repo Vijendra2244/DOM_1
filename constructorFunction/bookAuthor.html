@@ -14,6 +14,27 @@ Display the book details for each book in the bookstore. -->
     <title>Book Author</title>
   </head>
   <body>
+    <form>
+      <input id="name" type="text" placeholder="Enter author name" />
+      <input id="inpDate" type="date" />
+      <input
+        id="nationalityAuthor"
+        type="text"
+        placeholder="Enter author's nationality"
+      />
+      <input type="submit" value="submit" />
+    </form>
+
+    <form id="form_2">
+      <input id="bookTitle" type="text" placeholder="Enter a book title" />
+      <input id="authorObj" type="text" placeholder="Author" />
+      <input id="genreBook" type="text" placeholder="Enter genre" />
+      <input id="priceBook" type="text" placeholder="enter book price" />
+      <input id="" type="submit" />
+    </form>
+
+    <div id="main"></div>
+    <div id="cont"></div>
     <script>
       function author(name, birthyear, nationality) {
         this.name = name;
@@ -29,9 +50,50 @@ Display the book details for each book in the bookstore. -->
         this.price = price;
       }
 
-      console.log(AuthorInfo);
-      let theBook = new Book("Rich Dad Poor Dad", AuthorInfo, "something", 200);
-      console.log(theBook);
+      // console.log(AuthorInfo);
+      // let theBook = new Book("Rich Dad Poor Dad", AuthorInfo, "something", 200);
+      // console.log(theBook);
+
+      let myFirstForm = document.querySelector("form");
+      let authorData = [];
+
+      myFirstForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let authorName = document.getElementById("name").value;
+        let authorDate = document.getElementById("inpDate").value;
+        let authorNationality =
+          document.getElementById("nationalityAuthor").value;
+        let main = document.querySelector("#main");
+
+        let AuthorInfo = new author(authorName, authorDate, authorNationality);
+
+        authorData.push(AuthorInfo);
+        main.append(
+          ` Author name ${authorName}  `,
+          ` Author Date of Birth ${authorDate}   `,
+          ` Author Nationality ${authorNationality}`
+        );
+        myFirstForm.reset();
+      });
+
+      let mySecondForm = document.querySelector("#form_2");
+      let bookData = [];
+      mySecondForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let bookTitle = document.getElementById("bookTitle").value;
+        let authorObject = document.getElementById("authorObj").value;
+        let genreB = document.getElementById("genreBook").value;
+        let priceB = document.getElementById("priceBook").value;
+        let bodyinfo = document.querySelector("body");
+        let cont = document.querySelector("#cont");
+        let theBook = new Book(bookTitle, genreB, priceB);
+
+        bookData.push(theBook);
+        cont.append(
+          `The title of the book ${bookTitle}  , and the genre ${genreB},and price of book ${priceB}`
+        );
+        mySecondForm.reset();
+      });
     </script>
   </body>
 </html>
