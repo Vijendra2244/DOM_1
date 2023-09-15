@@ -1,0 +1,54 @@
+<!-- You have been appointed as senior developer in Tata’s R&D department. The engineers there are lazy, they don’t want to do everything from scratch whenever they create a new model. They expect you to help them create an inheritance model for the automobiles.
+
+Description :-
+Implement an inheritance model for four wheeler automobiles.
+Implement using both object.create() and constructor functions().
+Think of properties of what can be inherited. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutoMobile Model</title>
+  </head>
+  <body>
+    <script>
+      function fourWheeler(
+        brand,
+        wheel,
+        model,
+        fuelType,
+        reverseGear,
+        numberOFWheels
+      ) {
+        this.brand = brand;
+        this.wheel = wheel;
+        this.model = model;
+        this.fuelType = fuelType;
+        this.reverseGear = reverseGear;
+
+        fourWheeler.prototype.handBreak = function () {
+          console.log(`this model have a hand break`);
+        };
+        fourWheeler.prototype.ac = function () {
+          console.log(`this model have also a air conditionar`);
+        };
+      }
+
+      let fourWheelar_1 = new fourWheeler(
+        "Maruti Suzuki",
+        4,
+        2012,
+        "diesel",
+        true
+      );
+      console.log(fourWheelar_1);
+      fourWheelar_1.ac();
+      fourWheelar_1.handBreak();
+
+      let fourWheeler_model_2013 = Object.create(fourWheeler);
+      console.log(fourWheeler_model_2013);
+      fourWheeler_model_2013.handBreak();
+    </script>
+  </body>
+</html>
