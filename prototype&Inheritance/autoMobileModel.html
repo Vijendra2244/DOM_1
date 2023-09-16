@@ -47,8 +47,31 @@ Think of properties of what can be inherited. -->
       fourWheelar_1.handBreak();
 
       let fourWheeler_model_2013 = Object.create(fourWheeler);
+      fourWheeler_model_2013 = new fourWheeler(
+        "Maruti Suzuki 2013",
+        4,
+        2012,
+        "petrol",
+        true
+      );
+      fourWheeler_model_2013.sunroof = () => {
+        console.log("yes we have a new feature");
+      };
+
       console.log(fourWheeler_model_2013);
+      fourWheeler_model_2013.sunroof();
+      fourWheeler_model_2013.ac();
       fourWheeler_model_2013.handBreak();
+
+      let maruti_suzuki_2023_updates = Object.create(fourWheeler_model_2013);
+      maruti_suzuki_2023_updates.autoDrive=()=>{
+        console.log("Ai generated driver in our new launched maruti suzuki brand")
+      }
+      console.log(maruti_suzuki_2023_updates);
+      maruti_suzuki_2023_updates.sunroof();
+      maruti_suzuki_2023_updates.ac();
+      maruti_suzuki_2023_updates.handBreak();
+      maruti_suzuki_2023_updates.autoDrive();
     </script>
   </body>
 </html>
