@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <style>
+      #slide {
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+      }
+      #slide img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cont">
+      <div id="slide">
+        <img src="/AsyncProgrammingAssignment/DummyImages/natrue1.jpg" alt="" />
+        <img src="/AsyncProgrammingAssignment/DummyImages/natrue2.jpg" alt="" />
+        <img src="/AsyncProgrammingAssignment/DummyImages/nature3.jpg" alt="" />
+        <img src="/AsyncProgrammingAssignment/DummyImages/nature4.jpg" alt="" />
+        <img src="/AsyncProgrammingAssignment/DummyImages/nature5.jpg" alt="" />
+        <img src="/AsyncProgrammingAssignment/DummyImages/nature6.jpg" alt="" />
+        <img src="/AsyncProgrammingAssignment/DummyImages/nature7.jpg" alt="" />
+        <img src="/AsyncProgrammingAssignment/DummyImages/nature8.jpg" alt="" />
+        <img src="/AsyncProgrammingAssignment/DummyImages/nature9.jpg" alt="" />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature10.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature11.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature12.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature13.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature14.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature15.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature16.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature17.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature18.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature19.jpg"
+          alt=""
+        />
+        <img
+          src="/AsyncProgrammingAssignment/DummyImages/nature20.jpg"
+          alt=""
+        />
+      </div>
+      <button onclick="toggleSlideShow()">Stop/Start</button>
+      <button onclick="prevSlide()">Prev</button>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  let sliderImage = document.querySelectorAll("#slide img");
+  let slideInterval;
+  let slideIndex = 0;
+  function Slide(index) {
+    sliderImage.forEach((slide, i) => {
+      if (i === index) {
+        slide.style.display = "block";
+      } else {
+        slide.style.display = "none";
+      }
+    });
+  }
+
+  function startSlideShow() {
+    slideInterval = setInterval(() => {
+      slideIndex = (slideIndex + 1) % sliderImage.length;
+      Slide(slideIndex);
+      console.log(slideIndex);
+    }, 2000);
+  }
+  function stopSlideShow() {
+    clearInterval(slideInterval);
+  }
+
+  function toggleSlideShow() {
+    if (slideInterval) {
+      stopSlideShow();
+      slideInterval = null;
+    } else {
+      startSlideShow();
+    }
+  }
+
+  // Manual Process
+  function nextSlide() {
+    stopSlideShow();
+    slideIndex = (slideIndex + 1) % sliderImage.length;
+    Slide(slideIndex);
+  }
+
+  function prevSlide() {
+    stopSlideShow();
+    slideIndex = (slideIndex - 1 + sliderImage.length) % sliderImage.length;
+    Slide(slideIndex);
+    console.log(slideIndex);
+  }
+
+  Slide(slideIndex);
+</script>
