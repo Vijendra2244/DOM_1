@@ -1,0 +1,103 @@
+<!-- Create a timer.html page
+Create input boxes which accepts time. (minutes, seconds and hours should be taken)
+have the following buttons start, pause, reset
+on start, the countdown should start
+on pause the timer should be pause
+on reset reset and stop the timer
+You can have a look at for reference. https://www.google.com/search?q=timer -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <style>
+      .main {
+        width: 30%;
+        margin: 15% auto;
+        display: flex;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+          rgb(51, 51, 51) 0px 0px 0px 3px;
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+      }
+      #timer {
+        font-size: 1.5rem;
+        font-family: monospace;
+      }
+      #timerStart {
+        padding: 1rem;
+        font-size: 1.5em;
+        font-family: monospace;
+        border-radius: 1rem;
+        border: none;
+        background-color: blue;
+        color: aliceblue;
+        cursor: pointer;
+      }
+      #timerPause {
+        padding: 1rem;
+        font-size: 1.5em;
+        font-family: monospace;
+        border-radius: 1rem;
+        border: none;
+        background-color: red;
+        color: aliceblue;
+        cursor: pointer;
+      }
+      #timerReset {
+        padding: 1rem;
+        font-size: 1.5em;
+        font-family: monospace;
+        border-radius: 1rem;
+        border: none;
+        background-color: green;
+        color: aliceblue;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <p id="timer">00:00</p>
+      <div>
+        <button id="timerStart" onclick="start()">Start</button>
+        <button id="timerPause" onclick="stop()">Pause</button>
+        <button id="timerReset" onclick="reset()">Reset</button>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let startTime = 10;
+  let timer = startTime * 60;
+  let countDownEl = document.getElementById("timer");
+  let watch = null;
+  function updateCountDown() {
+    let minute = Math.floor(timer / 60);
+    let second = timer % 60;
+
+    second = second < 10 ? "0" + second : second;
+    minute = minute < 10 ? "0" + minute : minute;
+    countDownEl.innerHTML = `${minute}: ${second}`;
+    timer--;
+  }
+  function start() {
+    if (watch != null) {
+      clearInterval(watch);
+    } else {
+      watch = setInterval(updateCountDown, 1000);
+    }
+  }
+  function stop() {
+    clearInterval(watch);
+  }
+  function reset() {
+    clearInterval(watch);
+    timer = startTime * 60;
+    updateCountDown();
+    watch = null;
+  }
+</script>
