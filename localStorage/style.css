@@ -1,0 +1,58 @@
+.cont {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.inputHere {
+  border-radius: 0.6rem;
+  padding: 5px 10px;
+  margin: 0.6rem 1rem;
+}
+label {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+.btn {
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  font-family: monospace;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  background-color: blue;
+}
+.btn2 {
+  width: 40%;
+  margin: auto;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  font-family: monospace;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  background-color: blue;
+}
+.btn,
+.btn2:hover {
+  cursor: pointer;
+}
+.table,
+th,
+td,
+tbody {
+  border: 1px solid black;
+}
+.table {
+  color: rgb(9, 0, 0);
+  background-color: rgb(40, 149, 151);
+  margin: 2rem 0;
+}
+td {
+  font-weight: 600;
+}

@@ -1,0 +1,50 @@
+<!-- Create an HTML file with input fields to accept a user's name and age.
+Store this data in Local Storage when the user submits the form.
+Create a button to retrieve and display the stored data from Local Storage.
+Style the form and display area using CSS to make it visually appealing.
+You can make use of tables to show the data stored in the local storage. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Local Storage</title>
+  </head>
+  <body>
+    <div class="cont">
+      <form>
+        <label for="userName">User-Name:-</label>
+        <input
+          id="userName"
+          type="text"
+          class="inputHere"
+          placeholder="Enter User Name"
+          required
+        />
+        <br />
+        <label for="userAge">User-Age:- </label>
+        <input
+          id="userAge"
+          type="number"
+          class="inputHere"
+          placeholder="Enter Age Here"
+          required
+        />
+        <br />
+        <input class="btn" type="submit" />
+      </form>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>UserName</th>
+            <th>UserAge</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button class="btn2" id="retrieveData">Retrieve Data</button>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

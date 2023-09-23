@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment System</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .phonePay {
+        width: 100vw;
+        height: 100vh;
+        background-image: url("https://media.gettyimages.com/id/1238107792/photo/in-this-photo-illustration-the-logo-of-phonepe-an-indian-digital-payments-and-financial.jpg?s=612x612&w=0&k=20&c=PxpxMvTnrQ1sTz7srFMu5apBgvWabCkOJG_AUDzprZM=");
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+      }
+
+      h1 {
+        color: rgb(4, 4, 80);
+        margin-bottom: 14rem;
+      }
+
+      #amount {
+        padding: 15px;
+        border-radius: 1rem;
+        border: none;
+      }
+
+      #payButton {
+        padding: 10px 20px;
+        background-color: #4f0ec4;
+        color: white;
+        border: none;
+        border-radius: 1rem;
+      }
+      #payButton:hover {
+        cursor: pointer;
+        background-color: #9624f5;
+        color: aliceblue;
+      }
+
+      #message {
+        margin-top: 20px;
+        font-weight: bold;
+        display: none;
+      }
+      #message {
+        margin: 2rem auto;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        padding: 1rem;
+        width: 10%;
+        border-radius: 0.6rem;
+        margin-left: 39rem;
+      }
+      .enter {
+        font-size: 1.6rem;
+        font-family: monospace;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="phonePay">
+      <h1>Phone Pay Payment System</h1>
+      <label class="enter" for="amount">Enter amount:</label>
+      <input type="number" id="amount" required />
+      <button id="payButton">Make Payment</button>
+      <p id="message"></p>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const amountInput = document.getElementById("amount");
+        const payButton = document.getElementById("payButton");
+        const message = document.getElementById("message");
+
+        function processPayment(amount) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              if (amount > 0) {
+                resolve("Payment successful!");
+              } else {
+                reject("Payment failed: Invalid amount");
+              }
+            }, randomSecond(4, 8) * 1000);
+          });
+        }
+
+        payButton.addEventListener("click", function () {
+          const paymentAmount = parseFloat(amountInput.value);
+
+          message.textContent = "Processing payment...";
+          message.style.display = "block";
+          message.style.backgroundColor = "yellow";
+
+          processPayment(paymentAmount)
+            .then((successMessage) => {
+              message.textContent = successMessage;
+              message.style.display = "block";
+              message.style.backgroundColor = "green";
+              message.style.color = "white";
+            })
+            .catch((errorMessage) => {
+              message.textContent = errorMessage;
+              message.style.display = "block";
+              message.style.backgroundColor = "red";
+              message.style.color = "white";
+            });
+        });
+      });
+      function randomSecond(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+    </script>
+  </body>
+</html>

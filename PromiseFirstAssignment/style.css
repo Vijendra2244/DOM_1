@@ -1,0 +1,40 @@
+.container {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.head {
+  font-family: monospace;
+  color: orangered;
+}
+#orderButton {
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  background-color: rgb(238, 79, 21);
+  cursor: pointer;
+  width: 20%;
+  margin: 2rem auto;
+}
+#orderButton:hover {
+  background-color: rgb(252, 70, 4);
+}
+.main {
+  display: flex;
+  flex-direction: column;
+}
+.main > div {
+  font-size: 1.5rem;
+  font-family: monospace;
+}
+
+#orderID {
+  color: orangered;
+}
