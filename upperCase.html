@@ -1,0 +1,44 @@
+<!-- Write a function to convert a character to lower case
+Use this function to convert a given word to lower case
+Use that function to convert an array of strings to array of lower case strings
+Sample Input ["MA", "SA", "I", "SCH", "OOL"]
+Sample Output ["ma", "sa", "i", "sch", "ool"] -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upper Case To Lower Case</title>
+  </head>
+  <body>
+    <script>
+      const converter = (array) => {
+        let lower_case = "abcdefghijklmnopqrstuvwxyz";
+        let upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let arr = [];
+        for (let i = 0; i < array.length; i++) {
+          let str = array[i];
+          let bag = "";
+          for (let j = 0; j < str.length; j++) {
+            for (let k = 0; k < lower_case.length; k++) {
+              if (str[j] == upper_case[k]) {
+                bag += lower_case[k];
+              }
+              if (str[j] == lower_case[k]) {
+                bag += upper_case[k];
+              }
+            }
+          }
+
+          arr.push(bag);
+        }
+
+        console.log(arr);
+        document.write(arr);
+      };
+
+      converter(["MA", "SA", "I", "SCH", "OOL"]);
+    </script>
+  </body>
+</html>

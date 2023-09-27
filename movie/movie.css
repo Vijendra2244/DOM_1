@@ -1,0 +1,24 @@
+.backMovie {
+  width: 20%;
+  color: black;
+  background-color: aqua;
+  border-radius: 0.6rem;
+  border: none;
+  padding: 0.5rem;
+  margin: 3rem 33rem;
+}
+.backMovie:hover {
+  cursor: pointer;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 20px;
+  width: 30%;
+  margin: auto;
+  font-family: monospace;
+}
+.card:hover {
+  cursor: pointer;
+}

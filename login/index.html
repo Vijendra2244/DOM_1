@@ -1,0 +1,39 @@
+// index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #login-section {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: auto;
+        gap: 20px;
+        border: 1px solid gray;
+        padding: 16px;
+        margin-top: 100px;
+      }
+      input,
+      button {
+        padding: 5px;
+      }
+      #token-display {
+        color: tomato;
+        text-align: center;
+      }
+    </style>
+    <title>Example 3</title>
+  </head>
+  <body>
+    <div id="login-section">
+      <h1 style="text-align: center">Login Form</h1>
+      <input type="text" placeholder="Enter Email " id="email-input" />
+      <input type="text" placeholder="Enter Password " id="password-input" />
+      <button id="login-button" onclick="login()">Login</button>
+    </div>
+    <div id="token-display"></div>
+    <script src="index.js"></script>
+  </body>
+</html>
