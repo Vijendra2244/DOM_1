@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    class customArray {
+      constructor(...array) {
+        this.size = array.length;
+        for (let i = 0; i < array.length; i++) {
+          this[i] = array[i];
+        }
+        this.element = array;
+        console.log(this.data);
+      }
+      push(ele) {
+        this[this.size] = ele;
+        this.size++;
+        console.log(this);
+      }
+      pop() {
+        if (this.size == 0) {
+          console.log("Array is empty");
+          return;
+        }
+        delete this[this.size - 1];
+        this.size--;
+        console.log(this);
+      }
+      print() {
+        let print = [];
+        for (let i = 0; i < this.size; i++) {
+          print.push(this[i]);
+        }
+        console.log(print);
+      }
+      reversePrint() {
+        let reverse = [];
+        for (let i = this.size - 1; i >= 0; i--) {
+          reverse.push(this[i]);
+        }
+        console.log(reverse);
+      }
+    }
+
+    let arr = new customArray(1, 2, 3, 4, 5);
+    arr.push(8);
+    arr.print();
+    arr.pop();
+    arr.print();
+    arr.reversePrint();
+  </script>
+</html>

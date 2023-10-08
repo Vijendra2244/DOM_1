@@ -1,34 +1,47 @@
-let para = document.getElementById("countP");
-let counter = 0;
-let starter = null;
-function Start() {
-  starter = setInterval(toggleCount, 1000);
-}
-function Stop() {
-  clearInterval(starter);
-}
-function toggleCount() {
-  if (counter < 10) {
-    para.innerText = "0" + Number(counter++);
-  } else {
-    para.innerText = Number(counter++);
+
+class Counter {
+  constructor() {
+    this.para = document.getElementById("countP");
+    this.counter = 0;
+    this.starter = null;
   }
-}
-function increament() {
-  Stop();
-  if (counter < 10) {
-    para.innerText = "0" + Number(counter++);
-  } else {
-    para.innerText = Number(counter++);
+
+   Start() {
+    this.starter = setInterval(this.toggleCount.bind(this), 1000);
   }
-}
-function decreament() {
-  if (counter >= 0) {
-    Stop();
-    if (counter < 10) {
-      para.innerText = "0" + Number(counter--);
+
+  Stop() {
+    clearInterval(this.starter);
+  }
+
+  toggleCount() {
+    if (this.counter < 10) {
+      this.para.innerText = "0" + Number(this.counter++);
     } else {
-      para.innerText = Number(counter--);
+      this.para.innerText = Number(this.counter++);
+    }
+  }
+
+  increment() {
+    this.Stop();
+    if (this.counter < 10) {
+      this.para.innerText = "0" + Number(this.counter++);
+    } else {
+      this.para.innerText = Number(this.counter++);
+    }
+  }
+
+  decrement() {
+    if (this.counter >= 0) {
+      this.Stop();
+      if (this.counter < 10) {
+        this.para.innerText = "0" + Number(this.counter--);
+      } else {
+        this.para.innerText = Number(this.counter--);
+      }
     }
   }
 }
+
+const myCounter = new Counter();
+
