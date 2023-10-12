@@ -71,7 +71,7 @@
     </div>
 
     <script>
-      document.addEventListener("click", function () {
+     
         const amountInput = document.getElementById("amount");
         const payButton = document.getElementById("payButton");
         const message = document.getElementById("message");
@@ -80,16 +80,16 @@
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               if (amount > 0) {
-                resolve("Payment successful!");
+                resolve ("Payment successful!");
               } else {
-                reject("Payment failed: Invalid amount");
+                reject("Payment failed");
               }
             }, randomSecond(4, 8) * 1000);
           });
         }
 
         payButton.addEventListener("click", function () {
-          const paymentAmount = parseFloat(amountInput.value);
+          const paymentAmount = (amountInput.value);
 
           message.textContent = "Processing payment...";
           message.style.display = "block";
@@ -109,7 +109,7 @@
               message.style.color = "white";
             });
         });
-      });
+      
       function randomSecond(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
